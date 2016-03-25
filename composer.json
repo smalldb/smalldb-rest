@@ -1,0 +1,25 @@
+{
+	"name": "cascade/smalldb-lightrest",
+	"description": "Light REST gateway for Smalldb",
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "Josef Kufner",
+			"email": "josef@kufner.cz"
+		}
+	],
+	"repositories": [
+		{ "type": "composer", "url": "https://akvarko.frozen-doe.net/composer/" }
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require": {
+		"cascade/libsmalldb": "dev-master",
+		"flupdo/flupdo": "dev-master"
+	},
+	"config": {
+	},
+	"extra": {
+	}
+}
+

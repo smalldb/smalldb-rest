@@ -1,0 +1,88 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "75728de82a3ba7c6e74a5f8cc1944f6d",
+    "content-hash": "9c8f5ab07766c156eb4e57b47538fcdf",
+    "packages": [
+        {
+            "name": "cascade/libsmalldb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@git.frozen-doe.net:cascade/libsmalldb.git",
+                "reference": "2746481b5417b3bdb49fc5d580d09758a9fb41d3"
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "suggest": {
+                "flupdo/flupdo": "SQL database support"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Smalldb\\StateMachine\\": "class/"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Josef Kufner",
+                    "email": "jk@frozen-doe.net"
+                }
+            ],
+            "description": "Smalldb: State machine abstraction layer",
+            "time": "2016-03-25 00:44:42"
+        },
+        {
+            "name": "flupdo/flupdo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@git.frozen-doe.net:efpa/flupdo.git",
+                "reference": "d2286c6406c0e2ee31f9c4101b8729ec219eec36"
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": ">=5.4"
+            },
+            "suggest": {
+                "ext-pdo_mysql": "MySQL driver for PDO",
+                "ext-pdo_sqlite": "Sqlite driver for PDO"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Flupdo\\Flupdo\\": "class/"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Josef Kufner",
+                    "email": "jk@frozen-doe.net"
+                }
+            ],
+            "description": "Flupdo: Simple and fully featured fluent query builder",
+            "time": "2015-12-23 16:27:01"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "cascade/libsmalldb": 20,
+        "flupdo/flupdo": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
