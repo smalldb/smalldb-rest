@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "75728de82a3ba7c6e74a5f8cc1944f6d",
+    "hash": "d3c133ce1182e0aee97d3cf80f912d7e",
     "content-hash": "9c8f5ab07766c156eb4e57b47538fcdf",
     "packages": [
         {
@@ -13,7 +13,7 @@
             "source": {
                 "type": "git",
                 "url": "git@git.frozen-doe.net:cascade/libsmalldb.git",
-                "reference": "2746481b5417b3bdb49fc5d580d09758a9fb41d3"
+                "reference": "5ea03d8cfdb75762a67175b69c44da557a4723aa"
             },
             "require": {
                 "php": ">=5.4"
@@ -37,7 +37,7 @@
                 }
             ],
             "description": "Smalldb: State machine abstraction layer",
-            "time": "2016-03-25 00:44:42"
+            "time": "2016-03-25 02:36:40"
         },
         {
             "name": "flupdo/flupdo",

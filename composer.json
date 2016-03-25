@@ -17,6 +17,9 @@
 		"cascade/libsmalldb": "dev-master",
 		"flupdo/flupdo": "dev-master"
 	},
+    "autoload": {
+        "psr-4": { "": "class/" }
+    },
 	"config": {
 	},
 	"extra": {
