@@ -21,7 +21,7 @@
         "cascade/doc-tools": "dev-master"
     },
     "autoload": {
-        "psr-4": { "": "class/" }
+        "psr-4": { "Smalldb\\Rest\\": "class/" }
     },
     "config": {
     },
