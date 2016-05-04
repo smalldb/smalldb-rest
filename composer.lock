@@ -12,11 +12,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@git.frozen-doe.net:trejbja1/libsmalldb.git",
-                "reference": "e4a48e2dda9d912fb78e39c8e8a9b4e5e185cd0b"
+                "url": "git@git.frozen-doe.net:cascade/libsmalldb.git",
+                "reference": "6ec136c1fd5b10e7c66ac947d1948fe41ae0a71b"
             },
             "require": {
                 "php": ">=5.4"
+            },
+            "require-dev": {
+                "cascade/doc-tools": "dev-master"
             },
             "suggest": {
                 "flupdo/flupdo": "SQL database support"
@@ -33,19 +36,19 @@
             "authors": [
                 {
                     "name": "Josef Kufner",
-                    "email": "jk@frozen-doe.net"
+                    "email": "josef@kufner.cz"
                 }
             ],
             "description": "Smalldb: State machine abstraction layer",
-            "time": "2016-03-27 17:01:42"
+            "time": "2016-05-04 11:37:28"
         },
         {
             "name": "flupdo/flupdo",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@git.frozen-doe.net:efpa/flupdo.git",
-                "reference": "aa0e1ec900ac814f2f2c09a042c18bce5c3558ba"
+                "url": "git@git.frozen-doe.net:cascade/flupdo.git",
+                "reference": "ad1efc97c276e773b022f7e0f975f544c705558b"
             },
             "require": {
                 "ext-pdo": "*",
@@ -71,7 +74,7 @@
                 }
             ],
             "description": "Flupdo: Simple and fully featured fluent query builder",
-            "time": "2016-03-25 20:55:39"
+            "time": "2015-11-26 02:24:19"
         }
     ],
     "packages-dev": [
