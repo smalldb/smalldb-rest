@@ -4,16 +4,16 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d3c133ce1182e0aee97d3cf80f912d7e",
-    "content-hash": "9c8f5ab07766c156eb4e57b47538fcdf",
+    "hash": "124d27a72dae4273bce3e80895a843d5",
+    "content-hash": "eb8cf48688b0eac521a7e9a5843778e4",
     "packages": [
         {
             "name": "cascade/libsmalldb",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@git.frozen-doe.net:cascade/libsmalldb.git",
-                "reference": "5ea03d8cfdb75762a67175b69c44da557a4723aa"
+                "url": "git@git.frozen-doe.net:trejbja1/libsmalldb.git",
+                "reference": "e4a48e2dda9d912fb78e39c8e8a9b4e5e185cd0b"
             },
             "require": {
                 "php": ">=5.4"
@@ -37,7 +37,7 @@
                 }
             ],
             "description": "Smalldb: State machine abstraction layer",
-            "time": "2016-03-25 02:36:40"
+            "time": "2016-03-27 17:01:42"
         },
         {
             "name": "flupdo/flupdo",
@@ -45,7 +45,7 @@
             "source": {
                 "type": "git",
                 "url": "git@git.frozen-doe.net:efpa/flupdo.git",
-                "reference": "d2286c6406c0e2ee31f9c4101b8729ec219eec36"
+                "reference": "aa0e1ec900ac814f2f2c09a042c18bce5c3558ba"
             },
             "require": {
                 "ext-pdo": "*",
@@ -71,15 +71,38 @@
                 }
             ],
             "description": "Flupdo: Simple and fully featured fluent query builder",
-            "time": "2015-12-23 16:27:01"
+            "time": "2016-03-25 20:55:39"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "cascade/doc-tools",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@git.frozen-doe.net:cascade/doc-tools.git",
+                "reference": "e8e20ca5de8b3bc54360aafd7c240a4daae3aec8"
+            },
+            "type": "library",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Josef Kufner",
+                    "email": "josef@kufner.cz"
+                }
+            ],
+            "description": "Cascade documentation tools",
+            "time": "2016-05-04 11:08:48"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "cascade/libsmalldb": 20,
-        "flupdo/flupdo": 20
+        "flupdo/flupdo": 20,
+        "cascade/doc-tools": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
