@@ -93,6 +93,13 @@ class Application
 	 */
 	public static function main($base_dir)
 	{
+		// Throw exceptions on all errors
+		set_error_handler(function ($errno, $errstr, $errfile, $errline ) {
+			if (error_reporting()) {
+				throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+			}
+		});
+
 		try {
 			$config = static::loadConfig($base_dir);
 			$smalldb = static::createSmalldb($config);
