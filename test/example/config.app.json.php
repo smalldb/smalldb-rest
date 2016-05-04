@@ -4,14 +4,14 @@
         "driver": "sqlite",
         "host": null,
         "port": null,
-        "database": "example/database.sqlite",
+        "database": "./database.sqlite",
         "username": null,
         "password": null,
         "log_query": null,
         "log_explain": null
     },
     "smalldb": {
-        "base_dir": "example/statemachine",
+        "base_dir": "./statemachine",
         "cache_disabled": true
     }
 }

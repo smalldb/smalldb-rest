@@ -29,10 +29,10 @@ require dirname(__DIR__)."/vendor/autoload.php";
 // Helper function to get Handler instance
 function createHandler()
 {
-	chdir(__DIR__);
+	chdir(__DIR__.'/example');
 
 	// Load configuration
-	$config = Smalldb\Rest\Application::loadConfig('./example');
+	$config = Smalldb\Rest\Application::loadConfig('./');
 
 	// Use temporary database & update configuration
 	$config['flupdo']['database'] = ':memory:';

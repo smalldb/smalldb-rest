@@ -5,8 +5,8 @@ Application
 
 	require('init.php');
 
-	chdir(__DIR__);
-	Smalldb\Rest\Application::main('./example');
+	chdir(__DIR__.'/example');
+	Smalldb\Rest\Application::main('./');
 
 ?>
 --EXPECT--
