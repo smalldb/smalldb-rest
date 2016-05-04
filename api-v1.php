@@ -51,7 +51,7 @@ try {
 		), 'smalldb');
 
 	// Convert current path to array and to string (result: $path is array, $path_str is string)
-	$path = trim($_SERVER['PATH_INFO'], '/');
+	$path = trim(isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '', '/');
 	$path = ($path == '' ? array() : explode('/', $path));
 
 	// Get '!action'
