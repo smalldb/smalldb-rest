@@ -21,22 +21,22 @@ Installation
 API Usage
 ---------
 
-Read state of a state machine (machine ID = `"article", 1`):
+Read state of a state machine (machine ID = `"blogpost", 1`):
 
 ```
-HTTP GET /api-v1.php/article/1
+HTTP GET /api-v1.php/blogpost/1
 ```
 
 Read transition info of a state machine (transition `edit`):
 
 ```
-HTTP GET /api-v1.php/article/1!edit
+HTTP GET /api-v1.php/blogpost/1!edit
 ```
 
 Invoke transition of a state machine (transition `edit`, parameters are passed via `$_POST['args']`):
 
 ```
-HTTP POST /api-v1.php/article/1!edit
+HTTP POST /api-v1.php/blogpost/1!edit
 Content-Type: application/x-www-form-urlencoded
 
 args[0][title]=Some%20title&args[1][text]=Lorem%20ipsum
@@ -45,7 +45,7 @@ args[0][title]=Some%20title&args[1][text]=Lorem%20ipsum
 List state machines of given type:
 
 ```
-HTTP GET /api-v1.php/?type=article
+HTTP GET /api-v1.php/?type=blogpost
 ```
 
 
