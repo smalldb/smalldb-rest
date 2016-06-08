@@ -1,5 +1,5 @@
 {
-    "name": "cascade/smalldb-rest",
+    "name": "smalldb/smalldb-rest",
     "description": "Simple REST API for Smalldb",
     "license": "Apache-2.0",
     "authors": [
@@ -14,8 +14,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "cascade/libsmalldb": "dev-master",
-        "flupdo/flupdo": "dev-master"
+        "smalldb/libsmalldb": "dev-master",
+        "smalldb/flupdo": "dev-master"
     },
     "require-dev": {
         "cascade/doc-tools": "dev-master"

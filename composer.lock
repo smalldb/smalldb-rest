@@ -4,25 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "124d27a72dae4273bce3e80895a843d5",
-    "content-hash": "eb8cf48688b0eac521a7e9a5843778e4",
+    "hash": "d57ab2676ba7a8f15810357bc3062e3c",
+    "content-hash": "372ccc5cec6da6842385cfa54eda392f",
     "packages": [
         {
-            "name": "cascade/libsmalldb",
+            "name": "smalldb/flupdo",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@git.frozen-doe.net:cascade/libsmalldb.git",
-                "reference": "6ec136c1fd5b10e7c66ac947d1948fe41ae0a71b"
+                "url": "git@git.frozen-doe.net:smalldb/flupdo.git",
+                "reference": "ca8b29310ed3305f42fdfc165b6489e94f92cbd7"
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "smalldb/doc-tools": "dev-master"
+            },
+            "suggest": {
+                "ext-pdo_mysql": "MySQL driver for PDO",
+                "ext-pdo_sqlite": "Sqlite driver for PDO"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Smalldb\\Flupdo\\": "class/"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Josef Kufner",
+                    "email": "josef@kufner.cz"
+                }
+            ],
+            "description": "Flupdo: A simple and fully featured fluent query builder",
+            "time": "2016-06-08 11:54:20"
+        },
+        {
+            "name": "smalldb/libsmalldb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@git.frozen-doe.net:smalldb/libsmalldb.git",
+                "reference": "4f20fe827b6bbefa8ac0d3a4b26c87b83af579d6"
             },
             "require": {
                 "php": ">=5.4"
             },
             "require-dev": {
-                "cascade/doc-tools": "dev-master"
+                "smalldb/doc-tools": "dev-master"
             },
             "suggest": {
-                "flupdo/flupdo": "SQL database support"
+                "smalldb/flupdo": "SQL database support"
             },
             "type": "library",
             "autoload": {
@@ -40,41 +77,7 @@
                 }
             ],
             "description": "Smalldb: State machine abstraction layer",
-            "time": "2016-05-04 11:37:28"
-        },
-        {
-            "name": "flupdo/flupdo",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@git.frozen-doe.net:cascade/flupdo.git",
-                "reference": "ad1efc97c276e773b022f7e0f975f544c705558b"
-            },
-            "require": {
-                "ext-pdo": "*",
-                "php": ">=5.4"
-            },
-            "suggest": {
-                "ext-pdo_mysql": "MySQL driver for PDO",
-                "ext-pdo_sqlite": "Sqlite driver for PDO"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Flupdo\\Flupdo\\": "class/"
-                }
-            },
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Josef Kufner",
-                    "email": "jk@frozen-doe.net"
-                }
-            ],
-            "description": "Flupdo: Simple and fully featured fluent query builder",
-            "time": "2015-11-26 02:24:19"
+            "time": "2016-06-08 12:04:52"
         }
     ],
     "packages-dev": [
@@ -103,8 +106,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cascade/libsmalldb": 20,
-        "flupdo/flupdo": 20,
+        "smalldb/libsmalldb": 20,
+        "smalldb/flupdo": 20,
         "cascade/doc-tools": 20
     },
     "prefer-stable": true,
