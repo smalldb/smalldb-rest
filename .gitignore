@@ -1,3 +1,4 @@
+composer.lock
 vendor
 config.local.json.php
 doc/doxygen/

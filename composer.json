@@ -8,17 +8,12 @@
             "email": "josef@kufner.cz"
         }
     ],
-    "repositories": [
-        { "type": "composer", "url": "https://akvarko.frozen-doe.net/composer/" }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "smalldb/libsmalldb": "dev-master",
         "smalldb/flupdo": "dev-master"
     },
     "require-dev": {
-        "cascade/doc-tools": "dev-master"
+        "smalldb/doc-tools": "dev-master"
     },
     "autoload": {
         "psr-4": { "Smalldb\\Rest\\": "class/" }
