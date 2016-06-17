@@ -2,7 +2,9 @@
 all: doc test
 
 test:
-	@ echo ; pear run-tests ./test ; echo
+	@ echo
+	@ pear run-tests ./test
+	@ echo
 
 doc:
 	make -C doc/ --no-print-dir
