@@ -57,7 +57,7 @@ class Application
 	public static function createSmalldb($config)
 	{
 		// Initialize database connection & query builder
-		$flupdo = \Flupdo\Flupdo\Flupdo::createInstanceFromConfig($config['flupdo']);
+		$flupdo = \Smalldb\Flupdo\Flupdo::createInstanceFromConfig($config['flupdo']);
 
 		// Initialize authenticator
 		$auth = null; // TODO
