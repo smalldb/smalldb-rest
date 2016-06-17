@@ -2,3 +2,11 @@ composer.lock
 vendor
 config.local.json.php
 doc/doxygen/
+
+run-tests.log
+test/*.diff
+test/*.exp
+test/*.log
+test/*.out
+test/*.php
+
