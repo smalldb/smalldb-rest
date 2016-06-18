@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "smalldb/libsmalldb": "dev-master",
-        "smalldb/flupdo": "dev-master"
+        "smalldb/libsmalldb": "*",
+        "smalldb/flupdo": "*"
     },
     "require-dev": {
         "smalldb/doc-tools": "dev-master"
