@@ -23,6 +23,27 @@ Installation
      allow everything. The default is to use `CookieAuth` class, but that
      requires some configuration.
 
+
+Configuration
+-------------
+
+Configuration is loaded from three JSON files. Later overwrites the previous
+(using `array_replace_recursive` function).
+
+  - `config.json.php` in Smalldb-REST's directory to load default values.
+  - `config.app.json.php` in the project's root directory to load
+    application-specific options. This file should be under version control, do
+    not put sensitive informations here.
+  - `config.local.json.php` in the project's root directory to load
+    installation-specific options. This file should NOT be under version
+    control (put it into `.gitignore`), it is meant to contain sensitive
+    informations.
+
+To achieve forward compatibility of your configuration files do not use whole
+copy of default config file in your application. Set only changed options
+instead.
+
+
 API Usage
 ---------
 
