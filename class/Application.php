@@ -110,17 +110,29 @@ class Application
 	 */
 	public static function createSmalldb($config)
 	{
+		// Create Smalldb backend without context
+		$smalldb = new \Smalldb\StateMachine\JsonDirBackend($config['smalldb'], null, 'smalldb');
+
 		// Initialize database connection & query builder
 		$flupdo = \Smalldb\Flupdo\Flupdo::createInstanceFromConfig($config['flupdo']);
 
 		// Initialize authenticator
-		$auth = null; // TODO
+		if (!isset($config['auth']['class'])) {
+			throw new InvalidArgumentException('Authenticator not defined. Please set auth.class option.');
+		}
+		$auth_class = $config['auth']['class'];
+		$auth = new $auth_class($config['auth'], $smalldb);
 
-		// Initialize Smalldb
-		return new \Smalldb\StateMachine\JsonDirBackend($config['smalldb'], array(
+		// Set Smalldb context
+		$smalldb->setContext(array(
 				'database' => $flupdo,
-				'auth' => $auth
-			), 'smalldb');
+				'auth' => $auth,
+			));
+
+		// Kick up Auth
+		$auth->checkSession();
+
+		return $smalldb;
 	}
 
 

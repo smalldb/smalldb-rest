@@ -16,8 +16,12 @@ Installation
 
   1. Use `composer install` to install all libraries.
   2. Create `api-v1.php` and `api-v1-diagram.php` as in examples.
-  3. Create state machine definitions in `statemachine` directory -- see libsmalldb documentation for details.
-
+  3. Create state machine definitions in `statemachine` directory -- see
+     libsmalldb documentation for details.
+  4. Before use in production environment change the `auth.class` option to
+     something less permissive. -- The `config.json.php` contains option to
+     allow everything. The default is to use `CookieAuth` class, but that
+     requires some configuration.
 
 API Usage
 ---------

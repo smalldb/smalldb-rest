@@ -13,5 +13,8 @@
     "smalldb": {
         "base_dir": "./statemachine",
         "cache_disabled": true
+    },
+    "auth": {
+        "class": "Smalldb\\StateMachine\\Auth\\AllowAllAuth"
     }
 }
