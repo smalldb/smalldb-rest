@@ -15,7 +15,8 @@ Installation
 ------------
 
   1. Use `composer install` to install all libraries.
-  2. Create state machine definitions in `statemachine` directory -- see libsmalldb documentation for details.
+  2. Create `api-v1.php` and `api-v1-diagram.php` as in examples.
+  3. Create state machine definitions in `statemachine` directory -- see libsmalldb documentation for details.
 
 
 API Usage
@@ -33,7 +34,8 @@ Read transition info of a state machine (transition `edit`):
 HTTP GET /api-v1.php/blogpost/1!edit
 ```
 
-Invoke transition of a state machine (transition `edit`, parameters are passed via `$_POST['args']`):
+Invoke transition of a state machine (transition `edit`, parameters are passed
+via `$_POST['args']`):
 
 ```
 HTTP POST /api-v1.php/blogpost/1!edit
@@ -47,6 +49,26 @@ List state machines of given type:
 ```
 HTTP GET /api-v1.php/?type=blogpost
 ```
+
+
+State diagram renderer
+----------------------
+
+The second function of the REST API is state diagram renderer. To retrieve
+state diagram of the `blogpost` state machine use following HTTP request:
+
+```
+HTTP GET /api-v1-diagram.php?machine=blogpost&format=png
+```
+
+This mean you can simply put this HTML to your application:
+
+```
+<img src="api-v1-diagram.php?machine=blogpost&format=png" alt="state diagram">
+```
+
+Note: Diagrams are rendered using Graphviz and cached using APC. The `dot`
+executable must be somewhere in PHP's PATH.
 
 
 LICENSE

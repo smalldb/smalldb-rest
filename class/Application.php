@@ -22,9 +22,63 @@ namespace Smalldb\Rest;
  * The REST API application
  *
  * Simply call `Application::main(__DIR__)` and it should work.
+ *
+ * @param $base_dir Base directory, where `config.app.json.php` is located.
+ * @param $task Select what this PHP script shall do -- see `TASK_*` constants.
+ *
+ * @note This class is a bit ugly to allow use of various parts from tests. The
+ * 	only real public API is the main() method.
  */
 class Application
 {
+
+	const TASK_API = 'api';		///< Implement Smalldb JSON REST API
+	const TASK_DIAGRAM = 'diagram';	///< State diagram renderer ($_GET params: machine, format (dot, png, pdf, svg))
+
+	/**
+	 * The main()
+	 */
+	public static function main($base_dir, $task = self::TASK_API)
+	{
+		// Throw exceptions on all errors
+		set_error_handler(function ($errno, $errstr, $errfile, $errline ) {
+			if (error_reporting()) {
+				throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+			}
+		});
+
+		try {
+			$config = static::loadConfig($base_dir);
+			$smalldb = static::createSmalldb($config);
+
+			// TODO: Replace switch with something nice
+			switch ($task) {
+				case self::TASK_API:
+					$handler = static::createHandler($config, $smalldb);
+					$router = static::createRouter($config, $handler);
+					JsonResponse::sendData($router->handle($_SERVER, $_GET, $_POST));
+					break;
+				case self::TASK_DIAGRAM:
+					static::renderStateMachine($smalldb, $_GET['machine'], $_GET['format']);
+					break;
+				default:
+					throw new \InvalidArgumentException('Unknown task');
+			}
+		}
+		catch(\Exception $ex) {
+			error_log($ex);
+			JsonResponse::sendException($ex);
+		}
+	}
+
+
+	/**
+	 * @name Helper methods
+	 *
+	 * @note These methods are not public API and they are likely to be changed.
+	 * 
+	 * @{
+	 */
 
 	/**
 	 * Load configuration from three files (defaults, app, local) and merge it.
@@ -89,29 +143,58 @@ class Application
 
 
 	/**
-	 * The main()
+	 * Render state diagram
 	 */
-	public static function main($base_dir)
+	public static function renderStateMachine(\Smalldb\StateMachine\AbstractBackend $smalldb, $machine, $format)
 	{
-		// Throw exceptions on all errors
-		set_error_handler(function ($errno, $errstr, $errfile, $errline ) {
-			if (error_reporting()) {
-				throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
-			}
-		});
+		$dot = $smalldb->getMachine($machine)->exportDot();
 
-		try {
-			$config = static::loadConfig($base_dir);
-			$smalldb = static::createSmalldb($config);
-			$handler = static::createHandler($config, $smalldb);
-			$router = static::createRouter($config, $handler);
-			JsonResponse::sendData($router->handle($_SERVER, $_GET, $_POST));
-		}
-		catch(\Exception $ex) {
-			error_log($ex);
-			JsonResponse::sendException($ex);
+		if ($format == 'dot') {
+			header('Content-Type: text/plain; encoding=utf8');
+			echo $dot;
+		} else if ($format == 'png' || $format == 'pdf' || $format == 'svg') {
+			$image = FALSE;
+
+			// Check cache
+			$dot_hash = md5($dot).'_'.$format;
+			if (function_exists('apcu_fetch')) {
+				$image = apcu_fetch($dot_hash);
+			}
+
+			if ($image === FALSE) {
+				// Render diagram using Graphviz
+				$p = proc_open('dot -T'.$format, [
+						['pipe', 'r'], ['pipe', 'wb'], ['file', 'php://stdout', 'a']
+					], $fp);
+				fwrite($fp[0], $dot);
+				fclose($fp[0]);
+				$image = stream_get_contents($fp[1]);
+				fclose($fp[1]);
+				$err = proc_close($p);
+
+				if ($err != 0) {
+					// Failed - drop corrupt image data
+					$image = FALSE;
+				} else if (function_exists('apcu_store')) {
+					// Store image in cache
+					apcu_store($dot_hash, $image, 3600);
+				}
+			}
+
+			if ($image) {
+				// Send image
+				switch ($format) {
+					case 'png': header('Content-Type: image/png'); break;
+					case 'svg': header('Content-Type: image/svg+xml'); break;
+					case 'pdf': header('Content-Type: application/pdf'); break;
+				}
+				echo $image;
+			}
+		} else {
+			throw new \InvalidArgumentException('Unknown format');
 		}
 	}
 
+	/// @}
 }
 

@@ -97,5 +97,6 @@ class Handler implements IHandler
 			'result' => call_user_func_array(array($ref, $action), empty($args) ? [] : $args),
 		];
 	}
+
 }
 
