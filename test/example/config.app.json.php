@@ -4,7 +4,7 @@
         "driver": "sqlite",
         "host": null,
         "port": null,
-        "database": "./database.sqlite",
+        "database": "./data/database.sqlite",
         "username": null,
         "password": null,
         "log_query": null,
