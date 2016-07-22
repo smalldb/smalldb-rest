@@ -15,6 +15,6 @@
         "cache_disabled": true
     },
     "auth": {
-        "class": "Smalldb\\StateMachine\\Auth\\AllowAllAuth"
+        "class": "Smalldb\\StateMachine\\Auth\\CookieAuth"
     }
 }

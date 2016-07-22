@@ -14,7 +14,9 @@ Get known types
 --EXPECT--
 {
     "types": [
-        "blogpost"
+        "blogpost",
+        "session",
+        "user"
     ]
 }
 

@@ -12,7 +12,9 @@ Application
 --EXPECT--
 {
     "types": [
-        "blogpost"
+        "blogpost",
+        "session",
+        "user"
     ]
 }
 
