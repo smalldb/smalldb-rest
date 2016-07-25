@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "smalldb/libsmalldb": ">=0.3",
+        "smalldb/libsmalldb": ">=0.4",
         "smalldb/flupdo": "*"
     },
     "require-dev": {

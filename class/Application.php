@@ -32,8 +32,9 @@ namespace Smalldb\Rest;
 class Application
 {
 
-	const TASK_API = 'api';		///< Implement Smalldb JSON REST API
-	const TASK_DIAGRAM = 'diagram';	///< State diagram renderer ($_GET params: machine, format (dot, png, pdf, svg))
+	const TASK_API = 'api';			///< Implement Smalldb JSON REST API
+	const TASK_DIAGRAM = 'diagram';		///< State diagram renderer ($_GET params: machine, format (dot, png, pdf, svg))
+	const TASK_SELFCHECK = 'selfcheck';	///< Perform a quick self-check to detect most common errors
 
 	/**
 	 * The main()
@@ -60,6 +61,9 @@ class Application
 					break;
 				case self::TASK_DIAGRAM:
 					static::renderStateMachine($smalldb, $_GET['machine'], $_GET['format']);
+					break;
+				case self::TASK_SELFCHECK:
+					JsonResponse::sendData(static::performSelfCheck($smalldb));
 					break;
 				default:
 					throw new \InvalidArgumentException('Unknown task');
@@ -153,6 +157,7 @@ class Application
 		return new Handler($config, $smalldb);
 	}
 
+	/// @}
 
 	/**
 	 * Render state diagram
@@ -207,6 +212,14 @@ class Application
 		}
 	}
 
-	/// @}
+
+	/**
+	 * Perform self-check.
+	 */
+	public static function performSelfCheck(\Smalldb\StateMachine\AbstractBackend $smalldb)
+	{
+		return $smalldb->performSelfCheck();
+	}
+
 }
 
