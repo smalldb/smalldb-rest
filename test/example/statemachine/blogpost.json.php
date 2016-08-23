@@ -3,6 +3,7 @@
     "table": "blogpost",
     "desc": "Blog post from paper",
     "state_select": "(CASE WHEN blogpost.isDeleted THEN 'deleted' WHEN blogpost.publishTime IS NOT NULL THEN 'published' ELSE 'writing' END)",
+    "no_default_machine": true,
     "states": {
         "writing": {
         },

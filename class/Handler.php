@@ -35,6 +35,15 @@ class Handler implements IHandler
 	}
 
 
+	/**
+	 * Get Smalldb
+	 */
+	public function getSmalldb()
+	{
+		return $this->smalldb;
+	}
+	
+
 	/// @copydoc IHandler::getKnownTypes
 	public function getKnownTypes()
 	{
