@@ -14,6 +14,7 @@
         "smalldb/flupdo": "*"
     },
     "require-dev": {
+        "smalldb/libsmalldb": "dev-master",
         "smalldb/doc-tools": "dev-master"
     },
     "autoload": {
