@@ -31,29 +31,29 @@ Listing
 == Good ==
 
 {
-    "items": {
-        "1": {
+    "items": [
+        {
             "state": "published",
             "id": 1,
             "title": "About ...",
             "publishTime": "2016-02-20",
             "isDeleted": 0
         },
-        "2": {
+        {
             "state": "published",
             "id": 2,
             "title": "Once upon a ...",
             "publishTime": "2016-01-10",
             "isDeleted": 0
         },
-        "3": {
+        {
             "state": "published",
             "id": 3,
             "title": "How to ...",
             "publishTime": "2016-03-30",
             "isDeleted": 0
         }
-    },
+    ],
     "processed_filters": {
         "_count": 3
     }
