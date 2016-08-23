@@ -49,7 +49,7 @@ class Handler implements IHandler
 	{
 		$listing = $this->smalldb->createListing($filters);
 		return [
-			'items' => $listing->fetchAll(),
+			'items' => array_values($listing->fetchAll()),	// Order of object's properties not guaranteed in JS
 			'processed_filters' => $listing->getProcessedFilters(),
 		];
 	}
