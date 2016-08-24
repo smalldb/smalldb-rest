@@ -32,9 +32,27 @@ namespace Smalldb\Rest;
 class Application
 {
 
+	const TASK_INIT = 'init';		///< Initialization only (for custom scripts)
 	const TASK_API = 'api';			///< Implement Smalldb JSON REST API
 	const TASK_DIAGRAM = 'diagram';		///< State diagram renderer ($_GET params: machine, format (dot, png, pdf, svg))
 	const TASK_SELFCHECK = 'selfcheck';	///< Perform a quick self-check to detect most common errors
+
+
+	/**
+	 * Initialize environment
+	 *
+	 * Usage:
+	 *
+	 *     require __DIR__."/vendor/autoload.php";
+	 *     list($config, $smalldb) = Smalldb\Rest\Application::initialize(__DIR__);
+	 *
+	 * @return [$config, $smalldb]
+	 */
+	public static function initialize($base_dir)
+	{
+		return static::main($base_dir, self::TASK_INIT);
+	}
+
 
 	/**
 	 * The main()
@@ -54,6 +72,9 @@ class Application
 
 			// TODO: Replace switch with something nice
 			switch ($task) {
+				case self::TASK_INIT:
+					// Initialization complete, let the rest of the script do its job.
+					return [$config, $smalldb];
 				case self::TASK_API:
 					$handler = static::createHandler($config, $smalldb);
 					$router = static::createRouter($config, $handler);
